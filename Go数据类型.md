@@ -13,5 +13,6 @@
     Go语言中`""`中的内容是字符串，默认使用utf-8编码
 
 #### byte和rune类型
-
++ 	byte  uint8的别名 表示ASCII码
++   rune  int32的别名 表示中文，日文，韩文等时 使用rune
 
