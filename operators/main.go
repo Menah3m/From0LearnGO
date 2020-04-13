@@ -36,9 +36,14 @@ func main() {
 	b1 := 1 // 001
 	b2 := 5 // 101
 
-	fmt.Println(b1 & b2) // 001 -> 1
-	fmt.Println(b1 | b2) // 101 -> 5
-	fmt.Println(b1 ^ b2) // 100 -> 4
-	fmt.Println(b1 << 3) // 1000 -》 1*2^3=8 (高位丢弃，低位补0)
-	fmt.Println(b2 >> 1) // 010 -> 5/2^1 = 2（低位丢弃，高位补0)
+	fmt.Println(b1 & b2) // 001 => 1
+	fmt.Println(b1 | b2) // 101 => 5
+	fmt.Println(b1 ^ b2) // 100 => 4
+	fmt.Println(b1 << 3) // 1000 => 1*2^3=8 (高位丢弃，低位补0)
+	fmt.Println(b2 >> 1) // 010 => 5/2^1 = 2（低位丢弃，高位补0)
+
+	// 5. 赋值运算符  先运算，再赋值
+	var c int = 5
+	c += 5 // 等同于 c = c + 5
+	fmt.Println(c)
 }
