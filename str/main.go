@@ -7,12 +7,12 @@ import (
 
 func main() {
 	// 求字符串的长度
-	s1 := "hello"
+	s1 := "hello"  //一个字母长度为 1
 	s2 := "你好beijing"
-	s3 := "北京"
-	fmt.Println(s1)
-	fmt.Println(s2)
-	fmt.Println(s3)
+	s3 := "北京" // 一个汉字长度为 3
+	fmt.Println(len(s1))
+	fmt.Println(len(s2))
+	fmt.Println(len(s3))
 
 	// 拼接字符串 '+'
 	fmt.Println(s1 + s2)
