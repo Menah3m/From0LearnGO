@@ -68,5 +68,19 @@ func main() {
 	fmt.Println(e2)      // e2 -> [0,100,0]
 	fmt.Println(e1)      // e1 -> [0,100,0]  e1的值也发生了变化
 						 //  原因：e1和e2使用的底层数组相同，
-						 //        改变e2则会改变底层数组，因为e1跟着发生变化
+						 //        改变e2则会改变底层数组，因此e1跟着发生变化
+	// 切片的遍历
+	se := []int{1, 2, 3, 4, 5}
+
+	// 1. for循环
+	for i := 0; i < len(se); i++ {
+		fmt.Println(i, se[i])
+	}
+
+	fmt.Println()
+	
+	// 2. for range循环
+	for index, value := range se {
+		fmt.Println(index, value)
+	}
 }
