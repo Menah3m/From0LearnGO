@@ -83,4 +83,52 @@ func main() {
 	for index, value := range se {
 		fmt.Println(index, value)
 	}
+
+
+	// 切片的扩容  append
+	// 切片要初始化之后才能使用
+	var ad []int     //此时没有申请内存
+	for i := 0;i < 10; i++ {
+		ad = append(ad,i) //append函数在添加元素时，可能会使得底层数组进行扩容，因此需要将结果返回给一个新的变量
+		fmt.Printf("%v len:%d cap:%d ptr:%p\n",ad , len(ad), cap(ad), ad)
+	}
+	
+	// append()可以添加多个元素，或者其他的切片
+	bc := []int{11, 2, 3, 56}
+	ad = append(ad, 1, 3, 5, 9)
+	ad = append(ad, bc...)  // 注意：被添加的切片后面要有'...'
+
+	fmt.Println(ad)
+
+
+	// 切片的复制 copy
+	co := []int{1, 2, 3, 4, 5}
+	bo := make([]int, 5, 5)
+	copy(bo, co)
+	do := bo
+	bo[0] = 100
+
+	fmt.Println(co)
+	fmt.Println(bo)
+	fmt.Println(do)
+
+	// 切片的删除   append(s[:index],a[index+1:]...)
+
+	cities := []string{"北京", "上海", "广州", "深圳"}
+	cities = append(cities[0:2], cities[3:]...)
+	fmt.Println(cities)
+
+	// 练习题1
+	e()
+
+
+}
+
+// 练习题1
+func e() {
+	var a = make([]string, 5, 10)
+	for i := 0; i < 10; i++{
+		a = append(a,fmt.Sprintf("%v", i))
+	}
+	fmt.Println(a)
 }
