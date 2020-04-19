@@ -119,8 +119,7 @@ func main() {
 	}
 
 	// 练习：统计字符串中每个单词出现的次数
-	
-    // 定义map[string]int
+	// 定义map[string]int
 	var s = "how do you do"
 	var wordMap = make(map[string]int)
 	// 字符串中有哪些单词
