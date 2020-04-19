@@ -87,13 +87,19 @@ func main() {
 	}
 
 	 
-
-
 	// 删除k-v对   通过delete()
 	delete(scoreMap, "刘三")
 	fmt.Println(scoreMap)
 
-
+	// 元素类型为map的切片
+	var mapSlice = make([]map[string]int, 8, 8) //只是完成了切片的初始化
+	// mapSlice = [nil nil nil nil nil nil nil nil]
+	fmt.Println(mapSlice[0] == nil)
+	// 还需要完成对内部map元素的初始化
+	mapSlice[0] = make(map[string]int, 8)
+	
+	mapSlice[0]["刘三"] = 100
+	fmt.Println(mapSlice)
 
 }
 
