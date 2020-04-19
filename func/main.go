@@ -20,6 +20,17 @@ func intSum(a int, b int) (int) {
 	return ret
 }
 
+// 函数接收可变参数   
+// 函数如果接收多种参数，则可变函数一定要放在固定参数后面
+func intSum3(a int, b... int) int {
+	ret := a
+	for _, v := range b {
+		ret = ret + v
+	}
+	return ret
+}
+
+
 func main(){
 	//函数调用
 	sayHello()
@@ -27,6 +38,16 @@ func main(){
 
 	ret := intSum(2, 3)
 	fmt.Println(ret)
+
+	r1 := intSum3(0)        // a=0 b=[]
+	r2 := intSum3(1)        // a=1 b=[]
+	r3 := intSum3(1, 2)     // a=1 b=[2]
+	r4 := intSum3(1, 2, 3)  // a=1 b=[2 3]
+
+	fmt.Println(r1)
+	fmt.Println(r2)
+	fmt.Println(r3)
+	fmt.Println(r4)
 
 }
 
