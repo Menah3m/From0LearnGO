@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math/rand"
 	"sort"
+	"strings"
 )
 
 
@@ -91,7 +92,7 @@ func main() {
 	delete(scoreMap, "刘三")
 	fmt.Println(scoreMap)
 
-	// 元素类型为map的切片
+	// ----元素类型为map的切片----
 	var mapSlice = make([]map[string]int, 8, 8) //只是完成了切片的初始化
 	// mapSlice = [nil nil nil nil nil nil nil nil]
 	fmt.Println(mapSlice[0] == nil)
@@ -101,6 +102,41 @@ func main() {
 	mapSlice[0]["刘三"] = 100
 	fmt.Println(mapSlice)
 
+	// ----值为切片的map----
+	var sliceMap = make(map[string][]int, 8) //只完成了map的初始化
+	v1, ok1 := sliceMap["中国"]
+	if ok1 {
+		fmt.Println(v1)
+	} else {
+		sliceMap["中国"] = make([]int, 8, 8) //完成了对切片的初始化
+		sliceMap["中国"][0] = 100
+		sliceMap["中国"][2] = 300
+			 
+	}
+	// 遍历sliceMap
+	for k, v := range sliceMap {
+		fmt.Println(k, v)
+	}
+
+	// 练习：统计字符串中每个单词出现的次数
+	
+    // 定义map[string]int
+	var s = "how do you do"
+	var wordMap = make(map[string]int)
+	// 字符串中有哪些单词
+	words := strings.Split(s," ") // split函数返回一个切片
+	// 遍历单词做统计
+	for _, word := range words {
+		v2, ok2 := wordMap[word]
+		if ok2 {
+			wordMap[word]  = v2 + 1
+		} else {
+			wordMap[word] = 1
+		}
+	}
+	for k, v := range wordMap {
+		fmt.Println(k, v)
+	}
 }
 
 
