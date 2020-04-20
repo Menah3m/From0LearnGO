@@ -30,6 +30,23 @@ func intSum3(a int, b... int) int {
 	return ret
 }
 
+// Go语言支持多个返回值
+// 定义具有多个返回值的函数
+// Go语言中 类型简写 ->当多个参数或者返回值的类型相同时，可以类型简写
+func calc(a, b int)(sum, sub int) {
+	sum = a + b
+	sub = a - b
+	return 
+}
+
+// defer: 延迟执行
+func de(){
+	fmt.Println("start....")
+	defer fmt.Println(1)
+	defer fmt.Println(2)
+	defer fmt.Println(3)
+	fmt.Println("end....")
+}
 
 func main(){
 	//函数调用
@@ -48,6 +65,11 @@ func main(){
 	fmt.Println(r2)
 	fmt.Println(r3)
 	fmt.Println(r4)
+
+	x, y := calc(100, 200)
+	fmt.Println(x, y)
+
+	de()
 
 }
 
