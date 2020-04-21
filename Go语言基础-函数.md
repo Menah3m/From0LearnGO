@@ -18,6 +18,6 @@ func 函数名(参数 参数类型)(返回值类型){
 `panic`和`recover`：用来进行错误处理<br>
 
 ##### panic和recover
-`panic`可以在任何地方触发<br>
-`recover`只能在defer中触发<br>
+`panic`可能在任何地方触发<br>
+`recover`用于恢复错误现场，只能在defer中使用，defer要在可能触发错误的语句之前就定义<br>
 
