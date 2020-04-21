@@ -2,7 +2,10 @@ package main
 
 //函数进阶
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 // 函数进阶-变量作用域
 
@@ -25,6 +28,39 @@ func add(x, y int) (int) {
 func calc(x, y int, op func(int, int)(int))(int) {
 	return op(x , y)
 }
+
+// 闭包
+// 定义一个函数 它的返回值是一个函数
+func a(name string) func() {
+	
+	return func(){
+		fmt.Println("a内部定义的匿名函数：hello", name)
+	}
+}
+
+func makeSuffixFunc(suffix string) func(string) string {
+	return func(name string) string {
+		if !strings.HasSuffix(name, suffix) {
+			return name + suffix
+		}
+		return name
+	}
+
+}
+
+func calculate(base int) (func(int) int, func(int) int) {
+	add := func(i int) int {
+		base += i
+		return base
+	}
+
+	sub := func(i int) int {
+		base -= i
+		return base
+	}
+	return add, sub
+}
+
 
 func main() {
 	// 函数可以作为变量
@@ -52,10 +88,32 @@ func main() {
 		fmt.Println("匿名函数")
 	}
 	sayniming()
-	
+
 	// 2. 在定义的匿名函数最后加括号即可直接执行
 	func() {
 		fmt.Println("直接执行匿名函数")
 	}()
+
+
+	// 闭包 = 函数 + 外层变量的引用
+	r := a("张二")  //r此时相当于一个闭包
+	r()       // 相当于执行了函数a内部的匿名函数
+
+	// 闭包的使用例子1
+	re := makeSuffixFunc(".exe")
+	rere := re("ex")
+	fmt.Println(rere)
+
+	re1 := makeSuffixFunc(".avi")
+	rere1 := re1("ex")
+	fmt.Println(rere1)
+	
+	// 闭包的使用例子2
+	addRe, subRe := calculate(5)
+	r2add := addRe(4)    // base = 5 + 4 = 9
+	fmt.Println(r2add)
+	r2sub := subRe(4)    // base = 9 - 4 = 5
+	fmt.Println(r2sub)
+
 }
 
