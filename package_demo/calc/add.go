@@ -1,5 +1,7 @@
 package calc
 
+// 标识符首字母大写表示对外可见
+
 // Name 定义一个测试的全局变量
 var Name = "张三"
 
