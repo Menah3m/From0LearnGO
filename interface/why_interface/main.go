@@ -41,13 +41,19 @@ func da(arg sayer){
 
 
 func main(){
-	c1 := cat{}
-	da(c1)
-	d1 := dog{}
-	da(d1)
-	p1 := person{
-		name:"张三",
-	}
-	da(p1)
+	// c1 := cat{}
+	// da(c1)
+	// d1 := dog{}
+	// da(d1)
+	// p1 := person{
+	// 	name:"张三",
+	// }
+	// da(p1)
+	var s sayer
+	c2 := cat{}
+	s = c2
+	p2 := person{name:"李四"}
+	s = p2
+	fmt.Println(s)
 
 } 
