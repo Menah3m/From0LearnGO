@@ -35,3 +35,15 @@ ch1 := make(chan int)
   ```Go
   close(ch)
   ```
+
+##### 单向channel
+只能进行`发送`或者`接收`一种操作的channel
+限制函数传参时的行为
++ 只读channel类型（只能发送值）
+```Go
+ var ch <-chan int
+```
++ 只写channel类型（只能接收值）
+```Go
+ var ch chan<- int 
+```
