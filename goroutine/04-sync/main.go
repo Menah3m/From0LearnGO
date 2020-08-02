@@ -11,6 +11,7 @@ import (
 /*
 Go语言中原生的map不支持并发写操作
 可以用sync.Map实现并发写入
+sync.Map不需要进行初始化就可以使用
 */
 
 var (
