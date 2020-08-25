@@ -41,10 +41,12 @@ func TestSplit(t *testing.T){
 
 	}
 	for name, tc := range tests{
-		got := Split(tc.input, tc.sep)
-		if !reflect.DeepEqual(got, tc.want){
-			t.Errorf("name:%v failed, want:%v got:%v", name, tc.want, got)
+		t.Run(name, func(t *testing.T){
+			got := Split(tc.input, tc.sep)
+			if !reflect.DeepEqual(got, tc.want){
+				t.Errorf("name:%v failed, want:%v got:%v", name, tc.want, got)
 		}
+		})
 	}
 
 }
